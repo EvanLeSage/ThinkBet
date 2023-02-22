@@ -5,6 +5,8 @@ let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
 // Define a function (set of operations) to get restaurant information.
 // This will use the GET request on the URL endpoint
 function getRestaurants() {
+	
+	BREAK test
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     // XMLHttpRequest is the standard way you access an API in plain Javascript.
