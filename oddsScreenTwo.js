@@ -5,8 +5,7 @@ let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
 // Define a function (set of operations) to get restaurant information.
 // This will use the GET request on the URL endpoint
 function getRestaurants() {
-	
-	BREAK test
+
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
     // XMLHttpRequest is the standard way you access an API in plain Javascript.
@@ -73,7 +72,7 @@ function getRestaurants() {
                 //Hometeam name
                 const hometeam = document.createElement('h6');
                 hometeam.setAttribute('class', 'oddsteam');
-								hometeam.textContent = odd.home_team;
+		hometeam.textContent = odd.home_team;
                 
                 //Team one grid for ML
                 const teamoneh2hgrid = document.createElement('div')
@@ -91,14 +90,38 @@ function getRestaurants() {
 
                   teamoneh2hgrid.appendChild(teamonelogoh2h);
                   teamoneh2hgrid.appendChild(teamoneh2hprice);
-                  
-                //const teamonespreadgrid = document.createElement('div')
-                //teamonespreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
-                
-                	//const teamonelogospread = document.createElement('img');
-                  //teamonelogospread.setAttribute('class', 'sportsbooklogo');
-                  //teamonelogospread.src = odd.teamonespreadSBLOGO.sportsbooklogo.url;
-                  
+		    
+		  
+                //Team one grid for Spread
+                const teamonespreadgrid = document.createElement('div');
+                teamonespreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
+                   
+		   //Spread Sportsbook Logo, Team One
+                   const teamonelogospread = document.createElement('img');
+                   teamonelogospread.setAttribute('class', 'sportsbooklogo');
+                   teamonelogospread.src = odd.teamonespreadSBLOGO.sportsbooklogo.url;
+		    
+		   //Create a div for the spread and price
+		   const teamonespreadOddsToPrice = document.createElement('div');
+		   teamoneOddsToPrice = document.setAttribute('class', 'oddstopricediv');
+                   
+		   	//Spread amount, best, team one
+		    	const bestSpreadTeamOne = document.createElement('h6');
+		    	bestSpreadTeamOne.setAttribute('class', 'oddsprice');
+		    	bestSpreadTeamOne.textContent = odd.teamonebestspread;
+		    
+		    	//Spread price, best, team one
+		    	const bestSpreadPriceTeamOne = document.createElement('h6');
+		    	bestSpreadPriceTeamOne.setAttribute('class', 'oddsprice');
+		    	bestSpreadPriceTeamOne.textContent = odd.teamonespreadprice;
+		    
+		    	//Append to OddsToPriceDiv
+		    	teamonespreadOddsToPrice.appendChild(bestSpreadTeamOne);
+		    	teamonespreadOddsToPrice.appendChild(bestSpreadPriceTeamOne);
+		    
+		   //Append to teamonespreadgrid
+		   teamonespreadgrid.appendChild(teamonelogospread);
+		   teamonespreadgrid.appendChild(teamonespreadOddsToPrice);
                 
                 
                 //Team two grid for ML
@@ -163,16 +186,11 @@ function getRestaurants() {
                 card.appendChild(moneyline);
                 card.appendChild(spread);
                 card.appendChild(total);
-								card.appendChild(hometeam);
+		card.appendChild(hometeam);
                 card.appendChild(teamoneh2hgrid);
+		card.appendChild(teamonespreadgrid);
                 card.appendChild(teamtwoh2hgrid);
-                //card.appendChild(homeOdds);
-                //card.appendChild(homeSpread);
-               // card.appendChild(overPoints);
                 card.appendChild(awayteam);
-               // card.appendChild(awayOdds);
-              //  card.appendChild(awaySpread);
-              //  card.appendChild(underPoints);
             
                 cardContainer.appendChild(card);
             })
