@@ -1,4 +1,3 @@
-<script>
 
 // Create a variable for the API endpoint. 
 let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
@@ -189,4 +188,3 @@ function getRestaurants() {
     getRestaurants();
 })();
 
-</script>
