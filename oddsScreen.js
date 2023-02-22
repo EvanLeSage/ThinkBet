@@ -91,14 +91,13 @@ function getRestaurants() {
                   teamoneh2hgrid.appendChild(teamonelogoh2h);
                   teamoneh2hgrid.appendChild(teamoneh2hprice);
                   
-                const teamonespreadgrid = document.createElement('div')
-                teamonespreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
+                //const teamonespreadgrid = document.createElement('div')
+                //teamonespreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
                 
-                	const teamonelogospread = document.createElement('img');
-                  teamonelogospread.setAttribute('class', 'sportsbooklogo');
-                  teamonelogospread.src = odd.teamonespreadSBLOGO.sportsbooklogo.url;
+                	//const teamonelogospread = document.createElement('img');
+                  //teamonelogospread.setAttribute('class', 'sportsbooklogo');
+                  //teamonelogospread.src = odd.teamonespreadSBLOGO.sportsbooklogo.url;
                   
-                  const 
                 
                 
                 //Team two grid for ML
