@@ -177,6 +177,38 @@ function getRestaurants() {
                 const awayteam = document.createElement('h6');
                 awayteam.setAttribute('class', 'oddsteam');
                 awayteam.textContent = odd.away_team;
+		    
+		    
+		//Team two grid for Spread
+                const teamtwospreadgrid = document.createElement('div');
+                teamtwospreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
+                   
+		   //Spread Sportsbook Logo, Team One
+                   const teamtwologospread = document.createElement('img');
+                   teamtwologospread.setAttribute('class', 'sportsbooklogo');
+                   teamtwologospread.src = odd.teamtwospreadSBLOGO.sportsbooklogo.url;
+		    
+		   //Create a div for the spread and price
+		   const teamtwospreadOddsToPrice = document.createElement('div');
+		   teamtwospreadOddsToPrice.setAttribute('class', 'oddstopricediv');
+                   
+		   	//Spread amount, best, team one
+		    	const bestSpreadTeamTwo = document.createElement('h6');
+		    	bestSpreadTeamTwo.setAttribute('class', 'oddsprice');
+		    	bestSpreadTeamTwo.textContent = odd.teamtwobestspread;
+		    
+		    	//Spread price, best, team one
+		    	const bestSpreadPriceTeamTwo = document.createElement('h6');
+		    	bestSpreadPriceTeamTwo.setAttribute('class', 'oddsprice');
+		    	bestSpreadPriceTeamTwo.textContent = odd.teamtwospreadprice;
+		    
+		    	//Append to OddsToPriceDiv
+		    	teamtwospreadOddsToPrice.appendChild(bestSpreadTeamTwo);
+		    	teamtwospreadOddsToPrice.appendChild(bestSpreadPriceTeamTwo);
+		    
+		   //Append to teamonespreadgrid
+		   teamtwospreadgrid.appendChild(teamtwologospread);
+		   teamtwospreadgrid.appendChild(teamtwospreadOddsToPrice);
 
                 // Place the card into the div "Cards-Container" 
                 card.appendChild(placeHold);
@@ -187,7 +219,9 @@ function getRestaurants() {
                 card.appendChild(teamoneh2hgrid);
 		card.appendChild(teamonespreadgrid);
 		card.appendChild(overgrid);
+		card.appendChild(awayteam);
                 card.appendChild(teamtwoh2hgrid);
+	 	card.appendChild(teamtwospreadgrid);
                 card.appendChild(awayteam);
             
                 cardContainer.appendChild(card);
