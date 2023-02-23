@@ -209,6 +209,37 @@ function getRestaurants() {
 		   //Append to teamonespreadgrid
 		   teamtwospreadgrid.appendChild(teamtwologospread);
 		   teamtwospreadgrid.appendChild(teamtwospreadOddsToPrice);
+		    
+		//Under grid
+                const undergrid = document.createElement('div');
+                undergrid.setAttribute('class', 'w-layout-grid mlgrid');
+                   
+		   //Under book logo
+                   const underlogo = document.createElement('img');
+                   underlogo.setAttribute('class', 'sportsbooklogo');
+                   underlogo.src = odd.bestunderSBLOGO.sportsbooklogo.url;
+		    
+		   //Create a div for the over line and price
+		   const underDiv = document.createElement('div');
+		   underDiv.setAttribute('class', 'oddstopricediv');
+                   
+		   	//Over amount, best
+		    	const bestUnder = document.createElement('h6');
+		    	bestUnder.setAttribute('class', 'oddsprice');
+		    	bestUnder.textContent = odd.besttotalunder;
+		    
+		    	//Over price, best
+		    	const underBestPrice = document.createElement('h6');
+		    	underBestPrice.setAttribute('class', 'oddsprice');
+		    	underBestPrice.textContent = odd.bestunderprice;
+		    
+		    	//Append to overDiv
+		    	underDiv.appendChild(bestUnder);
+		    	underDiv.appendChild(underBestPrice);
+		    
+		   //Append to overgrid
+		   undergrid.appendChild(underlogo);
+		   undergrid.appendChild(underDiv);
 
                 // Place the card into the div "Cards-Container" 
                 card.appendChild(placeHold);
@@ -222,7 +253,7 @@ function getRestaurants() {
 		card.appendChild(awayteam);
                 card.appendChild(teamtwoh2hgrid);
 	 	card.appendChild(teamtwospreadgrid);
-                //card.appendChild(awayteam);
+	 	card.appendChild(undergrid);
             
                 cardContainer.appendChild(card);
             })
