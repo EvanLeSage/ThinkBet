@@ -103,7 +103,7 @@ function getRestaurants() {
 		    
 		   //Create a div for the spread and price
 		   const teamonespreadOddsToPrice = document.createElement('div');
-		   teamonespreadOddsToPrice = document.setAttribute('class', 'oddstopricediv');
+		   teamonespreadOddsToPrice.setAttribute('class', 'oddstopricediv');
                    
 		   	//Spread amount, best, team one
 		    	const bestSpreadTeamOne = document.createElement('h6');
