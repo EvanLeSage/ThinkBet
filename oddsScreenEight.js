@@ -222,7 +222,7 @@ function getRestaurants() {
 		card.appendChild(awayteam);
                 card.appendChild(teamtwoh2hgrid);
 	 	card.appendChild(teamtwospreadgrid);
-                card.appendChild(awayteam);
+                //card.appendChild(awayteam);
             
                 cardContainer.appendChild(card);
             })
