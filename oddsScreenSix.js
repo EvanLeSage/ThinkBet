@@ -122,6 +122,38 @@ function getRestaurants() {
 		   //Append to teamonespreadgrid
 		   teamonespreadgrid.appendChild(teamonelogospread);
 		   teamonespreadgrid.appendChild(teamonespreadOddsToPrice);
+		    
+		    
+		//Over grid
+                const overgrid = document.createElement('div');
+                overgrid.setAttribute('class', 'w-layout-grid mlgrid');
+                   
+		   //Over book logo
+                   const overlogo = document.createElement('img');
+                   overlogo.setAttribute('class', 'sportsbooklogo');
+                   overlogo.src = odd.bestoverSBLOGO.sportsbooklogo.url;
+		    
+		   //Create a div for the over line and price
+		   const overDiv = document.createElement('div');
+		   overDiv.setAttribute('class', 'oddstopricediv');
+                   
+		   	//Over amount, best
+		    	const bestOver = document.createElement('h6');
+		    	bestOver.setAttribute('class', 'oddsprice');
+		    	bestOver.textContent = odd.besttotalover;
+		    
+		    	//Over price, best
+		    	const overBestPrice = document.createElement('h6');
+		    	overBestPrice.setAttribute('class', 'oddsprice');
+		    	overBestPrice.textContent = odd.bestoverprice;
+		    
+		    	//Append to overDiv
+		    	overDiv.appendChild(bestOver);
+		    	overDiv.appendChild(overBestPrice);
+		    
+		   //Append to overgrid
+		   overgrid.appendChild(overlogo);
+		   overgrid.appendChild(overDiv);
                 
                 
                 //Team two grid for ML
@@ -145,41 +177,6 @@ function getRestaurants() {
                 const awayteam = document.createElement('h6');
                 awayteam.setAttribute('class', 'oddsteam');
                 awayteam.textContent = odd.away_team;
-                
-                //HOME ML
-               /* const homeOdds = document.createElement('h6');
-                homeOdds.setAttribute('class', 'oddsprice');
-                homeOdds.textContent = odd.bookmakers[0].markets[0].outcomes[0].price;
-                
-                //Home spread price, concat w/ spread
-                const homeSpreadPrice = odd.bookmakers[0].markets[1].outcomes[0].price;
-                
-                //HOME SPREAD
-                const homeSpread = document.createElement('h6');
-                homeSpread.setAttribute('class', 'oddsprice');
-                homeSpread.textContent = odd.bookmakers[0].markets[1].outcomes[0].point + ' / ' + homeSpreadPrice;
-                
-                //OVER POINTS
-                const overPoints = document.createElement('h6');
-                overPoints.setAttribute('class', 'oddsprice');
-                overPoints.textContent = 'o' + odd.bookmakers[0].markets[2].outcomes[0].point;
-                
-                const awayOdds = document.createElement('h6');
-                awayOdds.setAttribute('class', 'oddsprice');
-                awayOdds.textContent = odd.bookmakers[0].markets[0].outcomes[1].price;
-                
-                //Away spread price, concat w/ spread
-                const awaySpreadPrice = odd.bookmakers[0].markets[1].outcomes[1].price;
-                
-                //AWAY SPREAD
-                const awaySpread = document.createElement('h6');
-                awaySpread.setAttribute('class', 'oddsprice');
-                awaySpread.textContent = odd.bookmakers[0].markets[1].outcomes[1].point + ' / ' + awaySpreadPrice;
-                
-                const underPoints = document.createElement('h6');
-                underPoints.setAttribute('class', 'oddsprice');
-                underPoints.textContent = 'u' + odd.bookmakers[0].markets[2].outcomes[1].point; */
-                
 
                 // Place the card into the div "Cards-Container" 
                 card.appendChild(placeHold);
@@ -189,6 +186,7 @@ function getRestaurants() {
 		card.appendChild(hometeam);
                 card.appendChild(teamoneh2hgrid);
 		card.appendChild(teamonespreadgrid);
+		card.appendChild(overgrid);
                 card.appendChild(teamtwoh2hgrid);
                 card.appendChild(awayteam);
             
