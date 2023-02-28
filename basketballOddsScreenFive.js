@@ -5,38 +5,33 @@
 let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
 
 
-// Define a function (set of operations) to get restaurant information.
-// This will use the GET request on the URL endpoint
+// Get all NBA and NCAAB basketball odds from the API 
 function getOdds() {
 
 
-    // Create a request variable and assign a new XMLHttpRequest object to it.
-    // XMLHttpRequest is the standard way you access an API in plain Javascript.
+    // Create a request and assign a new XMLHttpRequest object to it.
     let request = new XMLHttpRequest();
     let url = xanoUrl.toString() + 'bestfeaturedoddsbysport?sport_key_requested[]=basketball_nba&sport_key_requested[]=basketball_ncaab';
-
-    // Remember the 'request' was defined above as the standard way to access an API in Javascript.
-    // GET is the verb we're using to GET data from Xano
+    
     request.open('GET', url, true)
 
-    // When the 'request' or API request loads, do the following...
+    // When the API request loads, do the following...
     request.onload = function() {
 
-        // Store what we get back from the Xano API as a variable called 'data' and converts it to a javascript object
+        //Parse the API response and store in 'data'
         let data = JSON.parse(this.response)
 
-        // Status 200 = Success. Status 400 = Problem.  This says if it's successful and no problems, then execute 
+        // Status 200 = Success. Status 400 = Problem. If no problems, then execute 
         if (request.status >= 200 && request.status < 400) {
 
-            // Map a variable called cardContainer to the Webflow element called "Cards-Container"
+            // Map cardContainer variables to their respective Webflow elements
             const cardContainerNBA = document.getElementById("odds-container-nba")
             const cardContainerNCAAB = document.getElementById("odds-container-ncaab")
 
-            // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
-            // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
+            //Loop through all odds returned by the API request
             data.forEach(odd => {
 
-                // For each restaurant, create a div called card and style with the "Sample Card" class
+                // For each odd, create a div called card and style with the sampleodds class
                 const card = document.createElement('div')
                 card.setAttribute('class', 'sampleodds');
 
@@ -245,6 +240,7 @@ function getOdds() {
                 card.appendChild(teamtwospreadgrid);
                 card.appendChild(undergrid);
                 
+                //Sort each odd into the appropriate card container (NBA or NCAAB)
                 if(odd.sport_key == "basketball_nba")
                 {
                      cardContainerNBA.appendChild(card);
@@ -257,7 +253,7 @@ function getOdds() {
         }
     }
 
-    // Send Restaurant request to API
+    // Send the request to API
     request.send();
 }
 
