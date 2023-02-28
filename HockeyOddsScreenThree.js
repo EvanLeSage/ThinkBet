@@ -25,7 +25,7 @@ function getOdds() {
         if (request.status >= 200 && request.status < 400) {
 
             // Map cardContainer variables to their respective Webflow elements
-            const cardContainerNHL = document.getElementById("odds-container-nba")
+            const cardContainerNHL = document.getElementById("odds-container-nhl")
             //const cardContainerNCAAB = document.getElementById("odds-container-ncaab")
 
             //Loop through all odds returned by the API request
