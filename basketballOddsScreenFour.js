@@ -7,7 +7,7 @@ let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
 
 // Define a function (set of operations) to get restaurant information.
 // This will use the GET request on the URL endpoint
-function getRestaurants() {
+function getOdds() {
 
 
     // Create a request variable and assign a new XMLHttpRequest object to it.
@@ -265,5 +265,5 @@ function getRestaurants() {
 
 // This fires all of the defined functions when the document is "ready" or loaded
 (function() {
-    getRestaurants();
+    getOdds();
 })();
