@@ -245,7 +245,7 @@ function getRestaurants() {
                 card.appendChild(teamtwospreadgrid);
                 card.appendChild(undergrid);
                 
-                if(odd.sport_key == "basketball_nba)
+                if(odd.sport_key == "basketball_nba")
                 {
                      cardContainerNBA.appendChild(card);
                 }
