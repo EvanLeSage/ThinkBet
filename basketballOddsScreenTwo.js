@@ -5,9 +5,6 @@
 let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
 
 
-//https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB:v1/bestfeaturedoddsbysport?sport_key_requested[]=basketball_nba
-
-
 // Define a function (set of operations) to get restaurant information.
 // This will use the GET request on the URL endpoint
 function getRestaurants() {
@@ -32,7 +29,8 @@ function getRestaurants() {
         if (request.status >= 200 && request.status < 400) {
 
             // Map a variable called cardContainer to the Webflow element called "Cards-Container"
-            const cardContainer = document.getElementById("odds-container-nba")
+            const cardContainerNBA = document.getElementById("odds-container-nba")
+            const cardContainerNCAAB = document.getElementById("odds-container-ncaab")
 
             // This is called a For Loop. This goes through each object being passed back from the Xano API and does something.
             // Specifically, it says "For every element in Data (response from API), call each individual item restaurant"
@@ -41,15 +39,6 @@ function getRestaurants() {
                 // For each restaurant, create a div called card and style with the "Sample Card" class
                 const card = document.createElement('div')
                 card.setAttribute('class', 'sampleodds');
-
-                // When a restuarant card is clicked, navigate to the item page by passing the restaurant id
-                //card.addEventListener('click', function() {
-                //    document.location.href = "/item?id=" + restaurant.id;
-                //});
-
-                // For each restaurant, Create an image and use the restaurant image coming from the API
-                //const hometeam = card.getElementsByTagName('HomeTeam')[0]
-                //hometeam.textContent = americanfootball_nfldb.home_team;
 
                 //Empty div to create padding
                 const placeHold = document.createElement('div');
@@ -255,8 +244,15 @@ function getRestaurants() {
                 card.appendChild(teamtwoh2hgrid);
                 card.appendChild(teamtwospreadgrid);
                 card.appendChild(undergrid);
-
-                cardContainer.appendChild(card);
+                
+                if(odd.sport_key == "basketball_nba)
+                {
+                     cardContainerNBA.appendChild(card);
+                }
+                else
+                {
+                    cardContainerNCAAB.appendChild(card);
+                }
             })
         }
     }
