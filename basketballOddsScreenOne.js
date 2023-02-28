@@ -16,7 +16,7 @@ function getRestaurants() {
     // Create a request variable and assign a new XMLHttpRequest object to it.
     // XMLHttpRequest is the standard way you access an API in plain Javascript.
     let request = new XMLHttpRequest();
-    let url = xanoUrl.toString() + 'bestfeaturedoddsbysport?sport_key_requested[]=basketball_nba&basketball_ncaab';
+    let url = xanoUrl.toString() + 'https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/bestfeaturedoddsbysport?sport_key_requested[]=basketball_nba&sport_key_requested[]=basketball_ncaab';
 
     // Remember the 'request' was defined above as the standard way to access an API in Javascript.
     // GET is the verb we're using to GET data from Xano
