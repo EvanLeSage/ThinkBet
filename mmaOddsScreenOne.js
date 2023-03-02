@@ -58,10 +58,15 @@ function getOdds() {
                 teamoneh2hgrid.setAttribute('class', 'w-layout-grid mlgrid');
 
                 //ML Sportsbook Logo, Team One
-                const teamonelogoh2h = document.createElement('img');
+               
+                //Check if the logo for team one exists w/in the JSON
+                if("teamoneh2hSBLOGO" in odd)
+                {
+                   
+               	const teamonelogoh2h = document.createElement('img');
                 teamonelogoh2h.setAttribute('class', 'sportsbooklogo');
                 teamonelogoh2h.src = odd.teamoneh2hSBLOGO.sportsbooklogo.url;
-
+                
                 //ML price, Team One
                 const teamoneh2hprice = document.createElement('h6');
                 teamoneh2hprice.setAttribute('class', 'oddsprice');
@@ -69,16 +74,23 @@ function getOdds() {
 
                 teamoneh2hgrid.appendChild(teamonelogoh2h);
                 teamoneh2hgrid.appendChild(teamoneh2hprice);
+                }
+                
                 
                 //Over grid
                 const overgrid = document.createElement('div');
                 overgrid.setAttribute('class', 'w-layout-grid mlgrid');
 
                 //Over book logo
+            
+                //Check for over logo
+            
+                if("bestoverSBLOGO" in odd)
+                {
                 const overlogo = document.createElement('img');
                 overlogo.setAttribute('class', 'sportsbooklogo');
                 overlogo.src = odd.bestoverSBLOGO.sportsbooklogo.url;
-
+                
                 //Create a div for the over line and price
                 const overDiv = document.createElement('div');
                 overDiv.setAttribute('class', 'oddstopricediv');
@@ -100,17 +112,20 @@ function getOdds() {
                 //Append to overgrid
                 overgrid.appendChild(overlogo);
                 overgrid.appendChild(overDiv);
+                }
 
 
                 //Team two grid for ML
                 const teamtwoh2hgrid = document.createElement('div')
                 teamtwoh2hgrid.setAttribute('class', 'w-layout-grid mlgrid');
 
-                //ML Sportsbook Logo, Team One
+                //ML Sportsbook Logo, Team Two
+                if("teamtwoh2hSBLOGO" in odd)
+                {
                 const teamtwologoh2h = document.createElement('img');
                 teamtwologoh2h.setAttribute('class', 'sportsbooklogo');
                 teamtwologoh2h.src = odd.teamtwoh2hSBLOGO.sportsbooklogo.url;
-
+                
                 //ML price, Team One
                 const teamtwoh2hprice = document.createElement('h6');
                 teamtwoh2hprice.setAttribute('class', 'oddsprice');
@@ -118,6 +133,8 @@ function getOdds() {
 
                 teamtwoh2hgrid.appendChild(teamtwologoh2h);
                 teamtwoh2hgrid.appendChild(teamtwoh2hprice);
+                }
+
 
                 //Awayteam name
                 const awayteam = document.createElement('h6');
@@ -129,10 +146,12 @@ function getOdds() {
                 undergrid.setAttribute('class', 'w-layout-grid mlgrid');
 
                 //Under book logo
+                if("bestunderSBLOGO" in odd)
+                {
                 const underlogo = document.createElement('img');
                 underlogo.setAttribute('class', 'sportsbooklogo');
                 underlogo.src = odd.bestunderSBLOGO.sportsbooklogo.url;
-
+                
                 //Create a div for the under line and price
                 const underDiv = document.createElement('div');
                 underDiv.setAttribute('class', 'oddstopricediv');
@@ -154,19 +173,19 @@ function getOdds() {
                 //Append to undergrid
                 undergrid.appendChild(underlogo);
                 undergrid.appendChild(underDiv);
+                }
+
+
 
                 // Place the card into the div "Cards-Container" 
                 card.appendChild(placeHold);
                 card.appendChild(moneyline);
-                card.appendChild(spread);
                 card.appendChild(total);
                 card.appendChild(hometeam);
                 card.appendChild(teamoneh2hgrid);
-                card.appendChild(teamonespreadgrid);
                 card.appendChild(overgrid);
                 card.appendChild(awayteam);
                 card.appendChild(teamtwoh2hgrid);
-                card.appendChild(teamtwospreadgrid);
                 card.appendChild(undergrid);
                 
                
