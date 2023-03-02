@@ -11,7 +11,7 @@ function getOdds() {
 
     // Create a request and assign a new XMLHttpRequest object to it.
     let request = new XMLHttpRequest();
-    let url = xanoUrl.toString() + 'bestfeaturedoddsbysport?sport_key_requested[]=mma_mixed_martial_arts';
+    let url = xanoUrl.toString() + 'bestmmaodds';
     
     request.open('GET', url, true)
 
@@ -26,14 +26,13 @@ function getOdds() {
 
             // Map cardContainer variables to their respective Webflow elements
             const cardContainerMMA = document.getElementById("odds-container-mma")
-            //const cardContainerNCAAB = document.getElementById("odds-container-ncaab")
 
             //Loop through all odds returned by the API request
             data.forEach(odd => {
 
                 // For each odd, create a div called card and style with the sampleodds class
                 const card = document.createElement('div')
-                card.setAttribute('class', 'sampleodds');
+                card.setAttribute('class', 'sampleoddsmma');
 
                 //Empty div to create padding
                 const placeHold = document.createElement('div');
@@ -44,15 +43,10 @@ function getOdds() {
                 moneyline.setAttribute('class', 'oddsmarket');
                 moneyline.textContent = 'Moneyline';
 
-                //Spread label
-                const spread = document.createElement('h6');
-                spread.setAttribute('class', 'oddsmarket');
-                spread.textContent = 'Spread';
-
-                //Total label
+                //Rounds label
                 const total = document.createElement('h6');
                 total.setAttribute('class', 'oddsmarket');
-                total.textContent = 'Total';
+                total.textContent = 'Rounds';
 
                 //Hometeam name
                 const hometeam = document.createElement('h6');
@@ -75,40 +69,7 @@ function getOdds() {
 
                 teamoneh2hgrid.appendChild(teamonelogoh2h);
                 teamoneh2hgrid.appendChild(teamoneh2hprice);
-
-
-                //Team one grid for Spread
-                const teamonespreadgrid = document.createElement('div');
-                teamonespreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
-
-                //Spread Sportsbook Logo, Team One
-                const teamonelogospread = document.createElement('img');
-                teamonelogospread.setAttribute('class', 'sportsbooklogo');
-                teamonelogospread.src = odd.teamonespreadSBLOGO.sportsbooklogo.url;
-
-                //Create a div for the spread and price
-                const teamonespreadOddsToPrice = document.createElement('div');
-                teamonespreadOddsToPrice.setAttribute('class', 'oddstopricediv');
-
-                //Spread amount, best, team one
-                const bestSpreadTeamOne = document.createElement('h6');
-                bestSpreadTeamOne.setAttribute('class', 'oddsprice');
-                bestSpreadTeamOne.textContent = odd.teamonebestspread;
-
-                //Spread price, best, team one
-                const bestSpreadPriceTeamOne = document.createElement('h6');
-                bestSpreadPriceTeamOne.setAttribute('class', 'oddsprice');
-                bestSpreadPriceTeamOne.textContent = odd.teamonespreadprice;
-
-                //Append to OddsToPriceDiv
-                teamonespreadOddsToPrice.appendChild(bestSpreadTeamOne);
-                teamonespreadOddsToPrice.appendChild(bestSpreadPriceTeamOne);
-
-                //Append to teamonespreadgrid
-                teamonespreadgrid.appendChild(teamonelogospread);
-                teamonespreadgrid.appendChild(teamonespreadOddsToPrice);
-
-
+                
                 //Over grid
                 const overgrid = document.createElement('div');
                 overgrid.setAttribute('class', 'w-layout-grid mlgrid');
@@ -163,38 +124,6 @@ function getOdds() {
                 awayteam.setAttribute('class', 'oddsteam');
                 awayteam.textContent = odd.away_team;
 
-
-                //Team two grid for Spread
-                const teamtwospreadgrid = document.createElement('div');
-                teamtwospreadgrid.setAttribute('class', 'w-layout-grid mlgrid');
-
-                //Spread Sportsbook Logo, Team One
-                const teamtwologospread = document.createElement('img');
-                teamtwologospread.setAttribute('class', 'sportsbooklogo');
-                teamtwologospread.src = odd.teamtwospreadSBLOGO.sportsbooklogo.url;
-
-                //Create a div for the spread and price
-                const teamtwospreadOddsToPrice = document.createElement('div');
-                teamtwospreadOddsToPrice.setAttribute('class', 'oddstopricediv');
-
-                //Spread amount, best, team one
-                const bestSpreadTeamTwo = document.createElement('h6');
-                bestSpreadTeamTwo.setAttribute('class', 'oddsprice');
-                bestSpreadTeamTwo.textContent = odd.teamtwobestspread;
-
-                //Spread price, best, team one
-                const bestSpreadPriceTeamTwo = document.createElement('h6');
-                bestSpreadPriceTeamTwo.setAttribute('class', 'oddsprice');
-                bestSpreadPriceTeamTwo.textContent = odd.teamtwospreadprice;
-
-                //Append to OddsToPriceDiv
-                teamtwospreadOddsToPrice.appendChild(bestSpreadTeamTwo);
-                teamtwospreadOddsToPrice.appendChild(bestSpreadPriceTeamTwo);
-
-                //Append to teamonespreadgrid
-                teamtwospreadgrid.appendChild(teamtwologospread);
-                teamtwospreadgrid.appendChild(teamtwospreadOddsToPrice);
-
                 //Under grid
                 const undergrid = document.createElement('div');
                 undergrid.setAttribute('class', 'w-layout-grid mlgrid');
@@ -204,25 +133,25 @@ function getOdds() {
                 underlogo.setAttribute('class', 'sportsbooklogo');
                 underlogo.src = odd.bestunderSBLOGO.sportsbooklogo.url;
 
-                //Create a div for the over line and price
+                //Create a div for the under line and price
                 const underDiv = document.createElement('div');
                 underDiv.setAttribute('class', 'oddstopricediv');
 
-                //Over amount, best
+                //Under amount, best
                 const bestUnder = document.createElement('h6');
                 bestUnder.setAttribute('class', 'oddsprice');
                 bestUnder.textContent = odd.besttotalunder;
 
-                //Over price, best
+                //Under price, best
                 const underBestPrice = document.createElement('h6');
                 underBestPrice.setAttribute('class', 'oddsprice');
                 underBestPrice.textContent = odd.bestunderprice;
 
-                //Append to overDiv
+                //Append to underDiv
                 underDiv.appendChild(bestUnder);
                 underDiv.appendChild(underBestPrice);
 
-                //Append to overgrid
+                //Append to undergrid
                 undergrid.appendChild(underlogo);
                 undergrid.appendChild(underDiv);
 
@@ -240,15 +169,8 @@ function getOdds() {
                 card.appendChild(teamtwospreadgrid);
                 card.appendChild(undergrid);
                 
-                //Sort each odd into the appropriate card container (NBA or NCAAB)
-                //if(odd.sport_key == "basketball_nba")
-                //{
-                     //cardContainerNBA.appendChild(card);
-                //}
-                //else
-                //{
-                    cardContainerMMA.appendChild(card);
-                //}
+               
+                cardContainerMMA.appendChild(card);
             })
         }
     }
