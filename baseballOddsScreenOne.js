@@ -1,11 +1,11 @@
 //Evan LeSage, ThinkBet
-//Hockey Odds Screen
+//Baseball Odds Screen
 
 // Create a variable for the API endpoint. 
 let xanoUrl = new URL('https://x8ki-letl-twmt.n7.xano.io/api:cY_49sjB/');
 
 
-// Get all NBA and NCAAB basketball odds from the API 
+// Get all MLB odds from the API 
 function getOdds() {
 
 
@@ -240,7 +240,7 @@ function getOdds() {
                 card.appendChild(teamtwospreadgrid);
                 card.appendChild(undergrid);
                 
-                //Sort each odd into the appropriate card container (NBA or NCAAB)
+                //Sort each odd into the appropriate card container (MLB or NCAAB)
                 //if(odd.sport_key == "basketball_nba")
                 //{
                      //cardContainerNBA.appendChild(card);
